@@ -19,7 +19,7 @@ class Main {
             "credentials": "include",
             "headers": {
                 "accept": "*/*",
-                "authorization": client.token,
+                "authorization": "Bot " + client.token,
                 "content-type": "application/json",
             },
             "referrerPolicy": "no-referrer-when-downgrade",
