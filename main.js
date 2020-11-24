@@ -35,7 +35,7 @@ class Main {
             "credentials": "include",
             "headers": {
                 "accept": "*/*",
-                "authorization": client.token,
+                "authorization": "Bot" + client.token,
                 "content-type": "application/json",
             },
             "referrerPolicy": "no-referrer-when-downgrade",
@@ -66,7 +66,7 @@ client.on('message', async (message) => {
 
     if (command === "start-snipe") {
         let url = args[0];
-        handler.startSnipe(url);
+        handler.startSnipe(url, message.guild);
 
         if (!message.guild.features.includes('VANITY_URL')) {
             return message.reply("Vous ne possedez pas l'options VANITY_URL");
