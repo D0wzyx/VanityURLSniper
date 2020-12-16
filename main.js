@@ -1,6 +1,7 @@
 const Discord = require('discord.js'),
       client = new Discord.Client(),
-      moment = require("moment-timezone");
+      moment = require("moment-timezone"),
+      fetch = require('node-fetch');
 /*
     D0wzy - 2020
     Website: https://dowzy.fr/
