@@ -31,7 +31,7 @@ class Main {
             "mode": "cors"
         });
     }
-    checkVanityURL(url) {
+    async checkVanityURL(url) {
         return await fetch(`https://discord.com/api/v8/guilds/${guild.id}/vanity-url`, {
             "credentials": "include",
             "headers": {
@@ -45,9 +45,9 @@ class Main {
         });
     }
 
-    startSnipe(url, guild) {
+    async startSnipe(url, guild) {
         this.sniperInterval = setInterval(async () => {
-            this.setVanityURL(url, guild);
+            await this.setVanityURL(url, guild);
         }, 1000);
     }
 
@@ -67,7 +67,7 @@ client.on('message', async (message) => {
 
     if (command === "start-snipe") {
         let url = args[0];
-        handler.startSnipe(url, message.guild);
+        
 
         if (!message.guild.features.includes('VANITY_URL')) {
             return message.reply("Vous ne possedez pas l'options VANITY_URL");
@@ -75,6 +75,7 @@ client.on('message', async (message) => {
 
         message.reply(`Je commence à snipe l'URL ${url} dés maintenant`);
         console.log(`[INFO] Start sniping the url ${url} !`);
+        await handler.startSnipe(url, message.guild);
     };
 
     if (command === "stop-snipe") {
