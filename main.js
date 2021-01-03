@@ -70,10 +70,10 @@ client.on('message', async (message) => {
         
 
         if (!message.guild.features.includes('VANITY_URL')) {
-            return message.reply("Vous ne possedez pas l'options VANITY_URL");
+            return message.reply("Vous ne possédez pas l'options VANITY_URL");
         };
 
-        message.reply(`Je commence à snipe l'URL ${url} dés maintenant`);
+        message.reply(`Je commence à vérifier l'URL ${url} dès maintenant!`);
         console.log(`[INFO] Start sniping the url ${url} !`);
         await handler.startSnipe(url, message.guild);
     };
@@ -84,4 +84,4 @@ client.on('message', async (message) => {
     
 
 });
-client.login("Super secret token here");
+client.login("BOT TOKEN"); //Head to https://discord.com/developers/applications 
